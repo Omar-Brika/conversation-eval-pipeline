@@ -1,0 +1,566 @@
+{
+  "test_suite": [
+    {
+      "name": "Nav_Single_AR_Success",
+      "intent": "Navigate to the nearest hospital",
+      "language": "ar-SA",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "تم العثور على مستشفى قريب، جاري التوجيه."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Multi_AR_Success",
+      "intent": "Play Amr Diab songs",
+      "language": "ar-SA",
+      "domain": "MEDIA",
+      "dut_script": [
+        "هل تريد قائمة أغانيه الجديدة أم القديمة؟",
+        "جاري تشغيل قائمة أغانيه الجديدة."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_AR_Fail_WrongAction",
+      "intent": "Turn on the AC",
+      "language": "ar-SA",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "تم فتح النافذة."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_AR_Success",
+      "intent": "Call Ahmed",
+      "language": "ar-SA",
+      "domain": "PHONE",
+      "dut_script": [
+        "جاري الاتصال بأحمد."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_AR_Fail_Unsupported",
+      "intent": "Open the sunroof",
+      "language": "ar-SA",
+      "domain": "VEHICLE_CONTROL",
+      "dut_script": [
+        "عذراً، هذه الميزة غير متوفرة."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Multi_AR_Success",
+      "intent": "Set driver temperature to 20",
+      "language": "ar-SA",
+      "domain": "HVAC",
+      "dut_script": [
+        "هل تريد نفس الدرجة للراكب؟",
+        "تم ضبط درجة حرارة السائق على 20."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Nav_Multi_EN_Success",
+      "intent": "Find a parking lot",
+      "language": "en-US",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Do you want covered or open parking?",
+        "Navigating to the nearest covered parking."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_EN_Success",
+      "intent": "Play podcast",
+      "language": "en-US",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Playing the latest episode of your daily podcast."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_EN_Fail_NoContact",
+      "intent": "Call John Smith",
+      "language": "en-US",
+      "domain": "PHONE",
+      "dut_script": [
+        "I don't have a John Smith. Did you mean John from work?",
+        "Calling John from work."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_EN_Success",
+      "intent": "Make it colder",
+      "language": "en-US",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Decreased temperature by 2 degrees."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_EN_Fail_Hallucination",
+      "intent": "Check oil level",
+      "language": "en-US",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "I have added motor oil to your shopping list."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "SmartHome_Single_EN_Success",
+      "intent": "Open the garage door",
+      "language": "en-US",
+      "domain": "SMART_HOME",
+      "dut_script": [
+        "The garage door is now open."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_EN_Fail_WrongAction",
+      "intent": "Play FM 95.5",
+      "language": "en-US",
+      "domain": "RADIO",
+      "dut_script": [
+        "Switching to Bluetooth audio."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_FR_Success",
+      "intent": "Where is the nearest gas station?",
+      "language": "fr-FR",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "La station-service la plus proche est à 3 km, j'y vais."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Multi_FR_Success",
+      "intent": "Play jazz",
+      "language": "fr-FR",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Préférez-vous du jazz vocal ou instrumental ?",
+        "Joue du jazz instrumental."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Phone_Single_FR_Fail_NoNetwork",
+      "intent": "Call Marie",
+      "language": "fr-FR",
+      "domain": "PHONE",
+      "dut_script": [
+        "Impossible de passer l'appel, aucun réseau."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_FR_Success",
+      "intent": "Lower the temperature",
+      "language": "fr-FR",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Température réduite de 1 degré."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_FR_Success",
+      "intent": "What is the tire pressure?",
+      "language": "fr-FR",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "Les pneus avant sont à 2.4 bars, les arrière à 2.2 bars."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_FR_Fail_Hallucination",
+      "intent": "Turn on the seat heater",
+      "language": "fr-FR",
+      "domain": "HVAC",
+      "dut_script": [
+        "J'ai ajouté un chauffage de siège à votre liste Amazon."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_IT_Success",
+      "intent": "Take me to Rome",
+      "language": "it-IT",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Vuoi evitare i pedaggi o andare più veloce?",
+        "Percorso senza pedaggi impostato per Roma."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_IT_Success",
+      "intent": "Play my playlist",
+      "language": "it-IT",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Riproduzione della tua playlist preferita in corso."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_IT_Success",
+      "intent": "Call home",
+      "language": "it-IT",
+      "domain": "PHONE",
+      "dut_script": [
+        "Chiamata in vivavoce a casa in corso."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_IT_Fail_WrongAction",
+      "intent": "Turn on the heater",
+      "language": "it-IT",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Ho aperto il finestrino."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_IT_Success",
+      "intent": "How much gas do I have left?",
+      "language": "it-IT",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "Autonomia rimanente: 450 chilometri."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SmartHome_Single_IT_Fail_Unsupported",
+      "intent": "Turn on the house lights",
+      "language": "it-IT",
+      "domain": "SMART_HOME",
+      "dut_script": [
+        "Mi dispiace, non posso controllare i dispositivi domestici."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_RU_Success",
+      "intent": "Navigate home",
+      "language": "ru-RU",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Маршрут до дома построен, время в пути 20 минут."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Multi_RU_Success",
+      "intent": "Play rock music",
+      "language": "ru-RU",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Какой жанр рока? Классический или современный?",
+        "Включаю классический рок."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Phone_Multi_RU_Fail_NoContact",
+      "intent": "Call mom",
+      "language": "ru-RU",
+      "domain": "PHONE",
+      "dut_script": [
+        "Контакт 'мама' не найден. Позвонить 'Мама М'?",
+        "Звоню Мама М."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_RU_Success",
+      "intent": "Make it warmer",
+      "language": "ru-RU",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Температура увеличена на 2 градуса."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_RU_Fail_Hallucination",
+      "intent": "Check oil level",
+      "language": "ru-RU",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "Я добавил моторное масло в ваш список покупок."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_RU_Success",
+      "intent": "Play radio 101.1",
+      "language": "ru-RU",
+      "domain": "RADIO",
+      "dut_script": [
+        "Настроено на радиостанцию 101.1 FM."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_ES_Success",
+      "intent": "Find an ATM",
+      "language": "es-ES",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "¿Prefieres uno de tu banco o cualquiera?",
+        "Buscando el cajero de tu banco más cercano."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_ES_Success",
+      "intent": "Play relaxing music",
+      "language": "es-ES",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Reproduciendo música relajante en Spotify."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_ES_Fail_Busy",
+      "intent": "Call Carlos",
+      "language": "es-ES",
+      "domain": "PHONE",
+      "dut_script": [
+        "La línea de Carlos está ocupada."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_ES_Success",
+      "intent": "Turn up the temperature",
+      "language": "es-ES",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Temperatura aumentada a 23 grados."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_ES_Success",
+      "intent": "What is my current speed?",
+      "language": "es-ES",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "Tu velocidad actual es de 90 km/h."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_ES_Fail_WrongAction",
+      "intent": "Cool down the driver seat",
+      "language": "es-ES",
+      "domain": "HVAC",
+      "dut_script": [
+        "He subido el volumen de la radio."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_JP_Success",
+      "intent": "Go to the nearest convenience store",
+      "language": "ja-JP",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "最寄りのコンビニまで案内します。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Multi_JP_Success",
+      "intent": "Play podcast",
+      "language": "ja-JP",
+      "domain": "MEDIA",
+      "dut_script": [
+        "最新のニュースポッドキャストと、前回聞いていた音楽ポッドキャスト、どちらにしますか？",
+        "ニュースポッドキャストを再生します。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Phone_Single_JP_Fail_NoNetwork",
+      "intent": "Call Mr. Tanaka",
+      "language": "ja-JP",
+      "domain": "PHONE",
+      "dut_script": [
+        "電波が届いていないため、電話をかけられません。"
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_JP_Success",
+      "intent": "Turn on the AC",
+      "language": "ja-JP",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "エアコンをオンにしました。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_JP_Success",
+      "intent": "What is the tire pressure?",
+      "language": "ja-JP",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "前輪は240kPa、後輪は230kPaです。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SmartHome_Single_JP_Fail_Unsupported",
+      "intent": "Lock the house door",
+      "language": "ja-JP",
+      "domain": "SMART_HOME",
+      "dut_script": [
+        "申し訳ありません、スマートホーム機能は未対応です。"
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_ZH_Success",
+      "intent": "Navigate to nearest gas station",
+      "language": "zh-CN",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "附近有两个加油站，您去中石油还是中石化？",
+        "正在为您导航至中石油加油站。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_ZH_Success",
+      "intent": "Play Jay Chou's songs",
+      "language": "zh-CN",
+      "domain": "MEDIA",
+      "dut_script": [
+        "正在为您播放周杰伦的热门歌曲。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_ZH_Fail_NoContact",
+      "intent": "Call the boss",
+      "language": "zh-CN",
+      "domain": "PHONE",
+      "dut_script": [
+        "没有找到名为'老板'的联系人，要拨打李总吗？",
+        "正在拨打李总的电话。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_ZH_Success",
+      "intent": "Set temperature to 24 degrees",
+      "language": "zh-CN",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "好的，温度已调至24度。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_ZH_Fail_Hallucination",
+      "intent": "Check tire pressure",
+      "language": "zh-CN",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "好的，已将胎压计加入您的购物车。"
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "SmartHome_Single_ZH_Success",
+      "intent": "Turn on ambient lighting",
+      "language": "zh-CN",
+      "domain": "SMART_HOME",
+      "dut_script": [
+        "车内氛围灯已开启。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_ZH_Fail_WrongAction",
+      "intent": "Listen to traffic radio",
+      "language": "zh-CN",
+      "domain": "RADIO",
+      "dut_script": [
+        "已为您切换至蓝牙音乐模式。"
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    }
+  ]
+}
