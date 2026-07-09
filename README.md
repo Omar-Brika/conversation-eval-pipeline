@@ -1,7 +1,7 @@
 # Conversation Eval Pipeline
 
 ## Graph architecture
-  ![[system_design.svg](Resources/system_design.svg)
+  ![system_design.svg](Resources/system_design.svg)
 
 ## how to use run.sh
 ```bash
