@@ -3,14 +3,15 @@ import json
 import re
 import sys
 import time
-from uuid import UUID
 import uuid
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Literal, Sequence, TypedDict, Any, Optional
-from langchain_core.outputs import LLMResult
+from typing import Any, Dict, List, Literal, Optional, Sequence, TypedDict
+from uuid import UUID
+
 from langchain_core.callbacks import BaseCallbackHandler
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, SystemMessage
+from langchain_core.outputs import LLMResult
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, START, StateGraph
 from pydantic import BaseModel, Field
@@ -157,7 +158,6 @@ class BrainState(TypedDict):
     turn_count: int
     expected_turns: int
     llm_logs: list[dict]
-    hallucination_count: int
 
 
 # ==============================================================================
@@ -239,11 +239,9 @@ def prompter_node(state: BrainState):
     dut_script = state.get("dut_script", [])
     recent_msgs = state.get("recent_messages", [])
     current_logs = state.get("llm_logs", [])
-    hallucinations = state.get("hallucination_count", 0)
 
     # Increment turn count and get expected turns
     turn_count = state.get("turn_count", 0) + 1
-    expected_turns = state.get("expected_turns", 0)
 
     # 1. Generate Command & Evaluate Routing
     if not recent_msgs:
@@ -281,9 +279,13 @@ def prompter_node(state: BrainState):
         last_dut_msg = recent_msgs[-1].content
         dut_response_text = last_dut_msg
 
+        conversation_history = "\n".join(
+            [f"{m.name}: {m.content}" for m in recent_msgs]
+        )
         sys_prompt = SystemMessage(
             content=(
                 f"You are a Test User. Intent: {state['intent']}. Language: {state['target_language']}.\n"
+                f"Conversation History:\n{conversation_history}\n\n"
                 f'The Assistant just said: "{last_dut_msg}"\n'
                 f"Did the assistant complete the task or refuse? If yes, set is_interaction_complete to true.\n"
                 f"If the assistant asked for clarification, set it to false and generate the next command.\n"
@@ -310,26 +312,6 @@ def prompter_node(state: BrainState):
         user_cmd = parsed.text_command
         is_complete = parsed.is_interaction_complete
 
-    # Hallucination Check
-    potential_hallucination = False
-    hallucination_reason = ""
-
-    # Only check if DUT has responded (idx > 0) and router thinks it's done
-    if idx > 0 and is_complete:
-        if "?" in dut_response_text:
-            potential_hallucination = True
-            hallucination_reason = "DUT asked a question but router marked complete."
-        elif expected_turns > 0 and turn_count < expected_turns:
-            potential_hallucination = True
-            hallucination_reason = f"Early termination: finished in {turn_count} turns, expected {expected_turns}."
-
-    if potential_hallucination:
-        hallucinations += 1
-        if VERBOSE:
-            print(
-                f"    [WARNING] Potential Router Hallucination! {hallucination_reason}"
-            )
-
     # --- Log LLM Call ---
     log_entry = {
         "node": "prompter",
@@ -342,8 +324,6 @@ def prompter_node(state: BrainState):
             "text_command": parsed.text_command,
             "is_interaction_complete": parsed.is_interaction_complete,
         },
-        "potential_hallucination": potential_hallucination,
-        "hallucination_reason": hallucination_reason,
     }
     current_logs.append(log_entry)
 
@@ -371,9 +351,7 @@ def prompter_node(state: BrainState):
     dut_msg = AIMessage(content=dut_response, name="DUT")
 
     current_msgs = list(recent_msgs)
-    recent_msgs_updated = (current_msgs + [tester_msg, dut_msg])[
-        -4:
-    ]  # Keep last 2 turns
+    recent_msgs_updated = current_msgs + [tester_msg, dut_msg]
 
     if is_complete or new_idx >= len(dut_script):
         next_flag = "PROCEED_TO_JUDGE"
@@ -386,7 +364,6 @@ def prompter_node(state: BrainState):
         "turn_count": turn_count,
         "routing_flag": next_flag,
         "llm_logs": current_logs,
-        "hallucination_count": hallucinations,
     }
 
 
@@ -496,7 +473,6 @@ def run_single_test(test_case: dict) -> dict:
         "turn_count": 0,
         "expected_turns": expected_turns,
         "llm_logs": [],
-        "hallucination_count": 0,
     }
 
     start_time = time.time()
@@ -542,7 +518,6 @@ def run_single_test(test_case: dict) -> dict:
             "initial_prompter_time": initial_prompter_time,
             "routing_voice_cmd_time": routing_voice_cmd_time,
             "judgment_call_time": judgment_call_time,
-            "hallucination_count": final_state.get("hallucination_count", 0),
             "llm_logs": logs,
         }
     except Exception as e:
@@ -561,7 +536,6 @@ def run_single_test(test_case: dict) -> dict:
             "initial_prompter_time": 0,
             "routing_voice_cmd_time": 0,
             "judgment_call_time": 0,
-            "hallucination_count": 0,
             "llm_logs": [],
         }
 
@@ -607,7 +581,6 @@ def generate_report(results, cfg: Config):
         r.get("routing_voice_cmd_time", 0) for r in results
     )
     total_judgment_call_time = sum(r.get("judgment_call_time", 0) for r in results)
-    total_hallucinations = sum(r.get("hallucination_count", 0) for r in results)
 
     print("\n" + "=" * 95)
     print("FINAL BENCHMARK REPORT")
@@ -634,14 +607,13 @@ def generate_report(results, cfg: Config):
     print(f"  - INITIAL PROMPTER: {total_initial_prompter_time:.2f}s")
     print(f"  - ROUTING + VOICE CMD: {total_routing_voice_cmd_time:.2f}s")
     print(f"  - JUDGMENT CALL: {total_judgment_call_time:.2f}s")
-    print(f"TOTAL ROUTER HALLUCINATIONS: {total_hallucinations}")
     print("=" * 95 + "\n")
 
     # Save JSON
     report_file = f"benchmark_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
 
-    # Include raw callback data for absolute transparency
-    raw_llm_calls = llm_tracker.calls if llm_tracker is not None else []
+    # remove verbose and redundant llm_logs from the saved results
+    clean_results = [{k: v for k, v in r.items() if k != "llm_logs"} for r in results]
 
     with open(report_file, "w") as f:
         json.dump(
@@ -655,9 +627,7 @@ def generate_report(results, cfg: Config):
                 "total_initial_prompter_time": total_initial_prompter_time,
                 "total_routing_voice_cmd_time": total_routing_voice_cmd_time,
                 "total_judgment_call_time": total_judgment_call_time,
-                "total_hallucinations": total_hallucinations,
-                "raw_llm_callback_logs": raw_llm_calls,
-                "results": results,
+                "results": clean_results,
             },
             f,
             indent=2,
