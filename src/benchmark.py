@@ -488,6 +488,16 @@ def run_single_test(test_case: dict) -> dict:
         turns_match = (actual_turns == expected_turns) if expected_turns > 0 else True
 
         logs = final_state.get("llm_logs", [])
+        # calculate call counts
+        total_calls = len(logs)
+        initial_calls = sum(
+            1 for log in logs if log.get("metric_type") == "initial_prompter"
+        )
+        routing_calls = sum(
+            1 for log in logs if log.get("metric_type") == "routing_voice_cmd"
+        )
+        judgment_calls = sum(1 for log in logs if log.get("metric_type") == "judgment")
+
         total_llm_time = sum(log["llm_time_sec"] for log in logs)
         initial_prompter_time = sum(
             log["llm_time_sec"]
@@ -518,6 +528,10 @@ def run_single_test(test_case: dict) -> dict:
             "initial_prompter_time": initial_prompter_time,
             "routing_voice_cmd_time": routing_voice_cmd_time,
             "judgment_call_time": judgment_call_time,
+            "total_llm_calls": total_calls,
+            "initial_prompter_calls": initial_calls,
+            "routing_voice_cmd_calls": routing_calls,
+            "judgment_call_calls": judgment_calls,
             "llm_logs": logs,
         }
     except Exception as e:
@@ -536,6 +550,10 @@ def run_single_test(test_case: dict) -> dict:
             "initial_prompter_time": 0,
             "routing_voice_cmd_time": 0,
             "judgment_call_time": 0,
+            "total_llm_calls": 0,
+            "initial_prompter_calls": 0,
+            "routing_voice_cmd_calls": 0,
+            "judgment_call_calls": 0,
             "llm_logs": [],
         }
 
@@ -582,6 +600,31 @@ def generate_report(results, cfg: Config):
     )
     total_judgment_call_time = sum(r.get("judgment_call_time", 0) for r in results)
 
+    total_llm_calls = sum(r.get("total_llm_calls", 0) for r in results)
+    total_initial_calls = sum(r.get("initial_prompter_calls", 0) for r in results)
+    total_routing_calls = sum(r.get("routing_voice_cmd_calls", 0) for r in results)
+    total_judgment_calls = sum(r.get("judgment_call_calls", 0) for r in results)
+
+    # Calculate Averages
+    avg_total_llm_time = (
+        (total_llm_time / total_llm_calls) if total_llm_calls > 0 else 0
+    )
+    avg_initial_prompter_time = (
+        (total_initial_prompter_time / total_initial_calls)
+        if total_initial_calls > 0
+        else 0
+    )
+    avg_routing_voice_cmd_time = (
+        (total_routing_voice_cmd_time / total_routing_calls)
+        if total_routing_calls > 0
+        else 0
+    )
+    avg_judgment_call_time = (
+        (total_judgment_call_time / total_judgment_calls)
+        if total_judgment_calls > 0
+        else 0
+    )
+
     print("\n" + "=" * 95)
     print("FINAL BENCHMARK REPORT")
     print("=" * 95)
@@ -603,10 +646,19 @@ def generate_report(results, cfg: Config):
     print(
         f"AVG EXPECTED TURNS: {total_expected_turns/total:.1f} | AVG ACTUAL TURNS: {total_actual_turns/total:.1f}"
     )
-    print(f"TOTAL LLM TIME: {total_llm_time:.2f}s")
-    print(f"  - INITIAL PROMPTER: {total_initial_prompter_time:.2f}s")
-    print(f"  - ROUTING + VOICE CMD: {total_routing_voice_cmd_time:.2f}s")
-    print(f"  - JUDGMENT CALL: {total_judgment_call_time:.2f}s")
+
+    print(
+        f"TOTAL LLM TIME: {total_llm_time:.2f}s (Avg: {avg_total_llm_time:.3f}s/call)"
+    )
+    print(
+        f"  - INITIAL PROMPTER: {total_initial_prompter_time:.2f}s (Avg: {avg_initial_prompter_time:.3f}s/call)"
+    )
+    print(
+        f"  - ROUTING + VOICE CMD: {total_routing_voice_cmd_time:.2f}s (Avg: {avg_routing_voice_cmd_time:.3f}s/call)"
+    )
+    print(
+        f"  - JUDGMENT CALL: {total_judgment_call_time:.2f}s (Avg: {avg_judgment_call_time:.3f}s/call)"
+    )
     print("=" * 95 + "\n")
 
     # Save JSON
@@ -623,10 +675,16 @@ def generate_report(results, cfg: Config):
                 "turn_match_rate": turn_match_rate,
                 "avg_expected_turns": total_expected_turns / total if total > 0 else 0,
                 "avg_actual_turns": total_actual_turns / total if total > 0 else 0,
+                # Totals
                 "total_llm_time": total_llm_time,
                 "total_initial_prompter_time": total_initial_prompter_time,
                 "total_routing_voice_cmd_time": total_routing_voice_cmd_time,
                 "total_judgment_call_time": total_judgment_call_time,
+                # Averages
+                "avg_total_llm_time": avg_total_llm_time,
+                "avg_initial_prompter_time": avg_initial_prompter_time,
+                "avg_routing_voice_cmd_time": avg_routing_voice_cmd_time,
+                "avg_judgment_call_time": avg_judgment_call_time,
                 "results": clean_results,
             },
             f,
