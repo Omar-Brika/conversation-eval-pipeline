@@ -16,11 +16,16 @@ Expected directory structure:
 ```
 **running the script**
 ```bash 
-
 chmod +x run.sh
 ./run.sh \
   --model-dir /path/to/your/MODEL_DIR \
   --port 8000 \
   --ctx-size 1024 \
   --ngl 99
+```
+
+## how to use chart_generator.py
+
+```bash
+python chart_generator.py --input ../benchmark_report_*.json --output_dir charts
 ```

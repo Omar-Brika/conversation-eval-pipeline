@@ -61,7 +61,7 @@ SERVER_PID=""
 
 cleanup() {
   if [ ! -z "$PYTHON_PID" ]; then
-    echo "Stopping benchmark.py (PID: $PYTHON_PID)..."
+    echo "Stopping main.py (PID: $PYTHON_PID)..."
     kill $PYTHON_PID 2>/dev/null
     wait $PYTHON_PID 2>/dev/null
     PYTHON_PID=""
@@ -146,7 +146,7 @@ process_models(){
     fi
 
     # Execute python script and capture the PID
-    python3 benchmark.py --model_name "$MODEL_NAME" --verbose &
+    python3 main.py --model_name "$MODEL_NAME" --port "$PORT" --verbose &
     PYTHON_PID=$!
     
     # Wait for python script to finish 
