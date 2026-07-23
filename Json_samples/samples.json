@@ -1,0 +1,2404 @@
+{
+  "test_suite": [
+    {
+      "name": "Nav_Single_Success_en_US",
+      "intent": "Navigate home",
+      "language": "en-US",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Route to home calculated. ETA 20 minutes."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_Success_en_US",
+      "intent": "Find a gas station",
+      "language": "en-US",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "I found several gas stations nearby. Would you like the closest one or a specific brand?",
+        "Navigating to the nearest Shell station."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_Success_en_US",
+      "intent": "Play classic rock",
+      "language": "en-US",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Playing classic rock hits on Spotify."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Single_Fail_WrongAction_en_US",
+      "intent": "Play jazz",
+      "language": "en-US",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Opening the sunroof."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Weather_Single_Success_en_US",
+      "intent": "What is the weather tomorrow?",
+      "language": "en-US",
+      "domain": "WEATHER",
+      "dut_script": [
+        "Tomorrow will be sunny with a high of 88 degrees Fahrenheit."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_Success_en_US",
+      "intent": "Call Mom",
+      "language": "en-US",
+      "domain": "PHONE",
+      "dut_script": [
+        "Calling Mom on speakerphone."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_Fail_NoContact_en_US",
+      "intent": "Call David",
+      "language": "en-US",
+      "domain": "PHONE",
+      "dut_script": [
+        "I don't have a David in your contacts. Did you mean David Smith?",
+        "Calling David Smith."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_Success_en_US",
+      "intent": "I am cold",
+      "language": "en-US",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Temperature adjusted. Is there anything else I can help you with?"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_Fail_Hallucination_en_US",
+      "intent": "Turn on the heater",
+      "language": "en-US",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "I have added a space heater to your Amazon cart."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_Success_en_US",
+      "intent": "Open the sunroof",
+      "language": "en-US",
+      "domain": "VEHICLE_CONTROL",
+      "dut_script": [
+        "Sunroof is now open."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_Success_en_US",
+      "intent": "Set driver temperature to 72 degrees",
+      "language": "en-US",
+      "domain": "HVAC",
+      "dut_script": [
+        "Driver temperature set to 72 degrees Fahrenheit."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Status_Single_Success_en_US",
+      "intent": "What is the tire pressure?",
+      "language": "en-US",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "Front tires are at 32 PSI, rear tires at 30 PSI."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SeatComfort_Single_Success_en_US",
+      "intent": "Turn on seat heating level 2",
+      "language": "en-US",
+      "domain": "SEAT_COMFORT",
+      "dut_script": [
+        "Driver seat heating set to level 2."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "AmbientLighting_Single_Success_en_US",
+      "intent": "Set the ambient light to blue",
+      "language": "en-US",
+      "domain": "AMBIENT_LIGHTING",
+      "dut_script": [
+        "Ambient lighting changed to blue."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DrivingAssist_Single_Success_en_US",
+      "intent": "Show driving assistance settings",
+      "language": "en-US",
+      "domain": "DRIVING_ASSISTANCE",
+      "dut_script": [
+        "Here are your driving assistance settings. DISTRONIC and active steering assist are currently active."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DigitalAssistant_Single_Success_en_US",
+      "intent": "Tell me a joke",
+      "language": "en-US",
+      "domain": "DIGITAL_ASSISTANT",
+      "dut_script": [
+        "Why did the Mercedes bring a ladder to the bar? Because it heard the drinks were on the house!"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_Success_en_US",
+      "intent": "Play FM 101.1",
+      "language": "en-US",
+      "domain": "RADIO",
+      "dut_script": [
+        "Tuned to FM 101.1."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Maintenance_Single_Success_en_US",
+      "intent": "When is my next service?",
+      "language": "en-US",
+      "domain": "MAINTENANCE",
+      "dut_script": [
+        "Your next service is due in 5,000 miles."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_Success_zh_CN",
+      "intent": "导航回家",
+      "language": "zh-CN",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "已规划回家的路线，预计20分钟到达。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_Success_zh_CN",
+      "intent": "找附近的停车场",
+      "language": "zh-CN",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "附近有三个停车场，您想要地上还是地下停车场？",
+        "正在导航至最近的地下停车场。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_Success_zh_CN",
+      "intent": "播放周杰伦的歌",
+      "language": "zh-CN",
+      "domain": "MEDIA",
+      "dut_script": [
+        "正在为您播放周杰伦的热门歌曲。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Single_Fail_WrongAction_zh_CN",
+      "intent": "播放古典音乐",
+      "language": "zh-CN",
+      "domain": "MEDIA",
+      "dut_script": [
+        "已为您打开天窗。"
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Weather_Single_Success_zh_CN",
+      "intent": "明天天气怎么样？",
+      "language": "zh-CN",
+      "domain": "WEATHER",
+      "dut_script": [
+        "明天晴朗，最高气温31度。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_Success_zh_CN",
+      "intent": "打电话给妈妈",
+      "language": "zh-CN",
+      "domain": "PHONE",
+      "dut_script": [
+        "正在使用免提呼叫妈妈。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_Fail_NoContact_zh_CN",
+      "intent": "打电话给小李",
+      "language": "zh-CN",
+      "domain": "PHONE",
+      "dut_script": [
+        "没有找到名为'小李'的联系人，您是指李明吗？",
+        "正在呼叫李明。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_Success_zh_CN",
+      "intent": "我有点冷",
+      "language": "zh-CN",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "已为您调高温度。还需要其他帮助吗？"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_Fail_Hallucination_zh_CN",
+      "intent": "打开暖风",
+      "language": "zh-CN",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "已将暖风机加入您的淘宝购物车。"
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_Success_zh_CN",
+      "intent": "打开天窗",
+      "language": "zh-CN",
+      "domain": "VEHICLE_CONTROL",
+      "dut_script": [
+        "天窗已打开。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_Success_zh_CN",
+      "intent": "主驾温度设为22度",
+      "language": "zh-CN",
+      "domain": "HVAC",
+      "dut_script": [
+        "主驾温度已设置为22度。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Status_Single_Success_zh_CN",
+      "intent": "胎压是多少？",
+      "language": "zh-CN",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "前轮2.4 bar，后轮2.3 bar。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SeatComfort_Single_Success_zh_CN",
+      "intent": "打开座椅加热2档",
+      "language": "zh-CN",
+      "domain": "SEAT_COMFORT",
+      "dut_script": [
+        "驾驶座座椅加热已设置为2档。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "AmbientLighting_Single_Success_zh_CN",
+      "intent": "把氛围灯调成蓝色",
+      "language": "zh-CN",
+      "domain": "AMBIENT_LIGHTING",
+      "dut_script": [
+        "氛围灯已切换为蓝色。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DrivingAssist_Single_Success_zh_CN",
+      "intent": "显示驾驶辅助设置",
+      "language": "zh-CN",
+      "domain": "DRIVING_ASSISTANCE",
+      "dut_script": [
+        "以下是您的驾驶辅助设置。智能领航限距和主动式车道保持辅助现已开启。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DigitalAssistant_Single_Success_zh_CN",
+      "intent": "给我讲个笑话",
+      "language": "zh-CN",
+      "domain": "DIGITAL_ASSISTANT",
+      "dut_script": [
+        "为什么奔驰车从不迷路？因为它总是在导航！"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_Success_zh_CN",
+      "intent": "收听FM101.1",
+      "language": "zh-CN",
+      "domain": "RADIO",
+      "dut_script": [
+        "已为您调频至FM101.1。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Maintenance_Single_Success_zh_CN",
+      "intent": "下次保养是什么时候？",
+      "language": "zh-CN",
+      "domain": "MAINTENANCE",
+      "dut_script": [
+        "您的下次保养里程为5000公里后。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_Success_de_DE",
+      "intent": "Navigiere nach Hause",
+      "language": "de-DE",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Route nach Hause berechnet. Ankunftszeit in 20 Minuten."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_Success_de_DE",
+      "intent": "Finde einen Parkplatz",
+      "language": "de-DE",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Es gibt mehrere Parkplätze in der Nähe. Bevorzugen Sie einen überdachten Parkplatz?",
+        "Navigiere zum nächsten überdachten Parkplatz."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_Success_de_DE",
+      "intent": "Spiele Popmusik",
+      "language": "de-DE",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Spiele die besten Pop-Hits auf Spotify."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Single_Fail_WrongAction_de_DE",
+      "intent": "Spiele Jazz",
+      "language": "de-DE",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Öffne das Schiebedach."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Weather_Single_Success_de_DE",
+      "intent": "Wie ist das Wetter morgen?",
+      "language": "de-DE",
+      "domain": "WEATHER",
+      "dut_script": [
+        "Morgen wird es sonnig mit Höchstwerten von 31 Grad."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_Success_de_DE",
+      "intent": "Rufe Mama an",
+      "language": "de-DE",
+      "domain": "PHONE",
+      "dut_script": [
+        "Rufe Mama über Freisprecheinrichtung an."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_Fail_NoContact_de_DE",
+      "intent": "Rufe David an",
+      "language": "de-DE",
+      "domain": "PHONE",
+      "dut_script": [
+        "Ich habe keinen David in Ihren Kontakten. Meinten Sie David Müller?",
+        "Rufe David Müller an."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_Success_de_DE",
+      "intent": "Mir ist kalt",
+      "language": "de-DE",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Temperatur wurde angepasst. Kann ich Ihnen noch behilflich sein?"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_Fail_Hallucination_de_DE",
+      "intent": "Heizung einschalten",
+      "language": "de-DE",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Ich habe einen Heizstrahler zu Ihrem Amazon-Warenkorb hinzugefügt."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_Success_de_DE",
+      "intent": "Öffne das Schiebedach",
+      "language": "de-DE",
+      "domain": "VEHICLE_CONTROL",
+      "dut_script": [
+        "Das Schiebedach ist jetzt offen."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_Success_de_DE",
+      "intent": "Fahrertemperatur auf 22 Grad",
+      "language": "de-DE",
+      "domain": "HVAC",
+      "dut_script": [
+        "Fahrertemperatur auf 22 Grad Celsius eingestellt."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Status_Single_Success_de_DE",
+      "intent": "Wie ist der Reifendruck?",
+      "language": "de-DE",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "Vorderreifen bei 2.4 bar, Hinterreifen bei 2.2 bar."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SeatComfort_Single_Success_de_DE",
+      "intent": "Sitzheizung Stufe 2 einschalten",
+      "language": "de-DE",
+      "domain": "SEAT_COMFORT",
+      "dut_script": [
+        "Sitzheizung Fahrersitz auf Stufe 2 eingestellt."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "AmbientLighting_Single_Success_de_DE",
+      "intent": "Ambientebeleuchtung auf blau setzen",
+      "language": "de-DE",
+      "domain": "AMBIENT_LIGHTING",
+      "dut_script": [
+        "Ambientebeleuchtung auf blau umgestellt."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DrivingAssist_Single_Success_de_DE",
+      "intent": "Zeig die Fahrerassistenz-Einstellungen",
+      "language": "de-DE",
+      "domain": "DRIVING_ASSISTANCE",
+      "dut_script": [
+        "Hier sind Ihre Fahrerassistenz-Einstellungen. DISTRONIC und aktive Spurhaltehilfe sind aktiv."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DigitalAssistant_Single_Success_de_DE",
+      "intent": "Erzähl mir einen Witz",
+      "language": "de-DE",
+      "domain": "DIGITAL_ASSISTANT",
+      "dut_script": [
+        "Warum hat der Mercedes eine Leiter mit in die Bar genommen? Weil die Getränke angeblich auf dem Haus waren!"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_Success_de_DE",
+      "intent": "Spiele FM 101.1",
+      "language": "de-DE",
+      "domain": "RADIO",
+      "dut_script": [
+        "Auf FM 101.1 eingestellt."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Maintenance_Single_Success_de_DE",
+      "intent": "Wann ist mein nächster Service?",
+      "language": "de-DE",
+      "domain": "MAINTENANCE",
+      "dut_script": [
+        "Ihr nächster Service ist in 5.000 Kilometern fällig."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_Success_fr_FR",
+      "intent": "Naviguer vers la maison",
+      "language": "fr-FR",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Itinéraire vers la maison calculé. Arrivée dans 20 minutes."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_Success_fr_FR",
+      "intent": "Trouver un parking",
+      "language": "fr-FR",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "J'ai trouvé plusieurs parkings à proximité. Préférez-vous un parking couvert ?",
+        "Navigation vers le parking couvert le plus proche."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_Success_fr_FR",
+      "intent": "Jouer du jazz",
+      "language": "fr-FR",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Lecture des meilleurs titres de jazz sur Spotify."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Single_Fail_WrongAction_fr_FR",
+      "intent": "Jouer de la musique classique",
+      "language": "fr-FR",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Ouverture du toit ouvrant."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Weather_Single_Success_fr_FR",
+      "intent": "Quel temps fera-t-il demain ?",
+      "language": "fr-FR",
+      "domain": "WEATHER",
+      "dut_script": [
+        "Demain sera ensoleillé avec un maximum de 31 degrés."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_Success_fr_FR",
+      "intent": "Appeler Maman",
+      "language": "fr-FR",
+      "domain": "PHONE",
+      "dut_script": [
+        "Appel de Maman en haut-parleur."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_Fail_NoContact_fr_FR",
+      "intent": "Appeler David",
+      "language": "fr-FR",
+      "domain": "PHONE",
+      "dut_script": [
+        "Je n'ai pas de David dans vos contacts. Vouliez-vous dire David Dupont ?",
+        "Appel de David Dupont."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_Success_fr_FR",
+      "intent": "J'ai froid",
+      "language": "fr-FR",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Température ajustée. Puis-je vous aider avec autre chose ?"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_Fail_Hallucination_fr_FR",
+      "intent": "Allumer le chauffage",
+      "language": "fr-FR",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "J'ai ajouté un radiateur à votre panier Amazon."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_Success_fr_FR",
+      "intent": "Ouvrir le toit ouvrant",
+      "language": "fr-FR",
+      "domain": "VEHICLE_CONTROL",
+      "dut_script": [
+        "Le toit ouvrant est maintenant ouvert."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_Success_fr_FR",
+      "intent": "Température conducteur à 22 degrés",
+      "language": "fr-FR",
+      "domain": "HVAC",
+      "dut_script": [
+        "Température conducteur réglée à 22 degrés."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Status_Single_Success_fr_FR",
+      "intent": "Quelle est la pression des pneus ?",
+      "language": "fr-FR",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "Pneus avant à 2.4 bars, pneus arrière à 2.2 bars."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SeatComfort_Single_Success_fr_FR",
+      "intent": "Activer le chauffage de siège niveau 2",
+      "language": "fr-FR",
+      "domain": "SEAT_COMFORT",
+      "dut_script": [
+        "Chauffage du siège conducteur réglé au niveau 2."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "AmbientLighting_Single_Success_fr_FR",
+      "intent": "Mettre les lumières en bleu",
+      "language": "fr-FR",
+      "domain": "AMBIENT_LIGHTING",
+      "dut_script": [
+        "Éclairage ambiant changé en bleu."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DrivingAssist_Single_Success_fr_FR",
+      "intent": "Afficher les paramètres d'aide à la conduite",
+      "language": "fr-FR",
+      "domain": "DRIVING_ASSISTANCE",
+      "dut_script": [
+        "Voici vos paramètres d'aide à la conduite. Le DISTRONIC et l'assistant de maintien de voie sont actifs."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DigitalAssistant_Single_Success_fr_FR",
+      "intent": "Raconte-moi une blague",
+      "language": "fr-FR",
+      "domain": "DIGITAL_ASSISTANT",
+      "dut_script": [
+        "Pourquoi la Mercedes a-t-elle apporté une échelle au bar ? Parce qu'on lui a dit que les boissons étaient offertes !"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_Success_fr_FR",
+      "intent": "Écouter FM 101.1",
+      "language": "fr-FR",
+      "domain": "RADIO",
+      "dut_script": [
+        "Réglé sur FM 101.1."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Maintenance_Single_Success_fr_FR",
+      "intent": "Quand est mon prochain entretien ?",
+      "language": "fr-FR",
+      "domain": "MAINTENANCE",
+      "dut_script": [
+        "Votre prochain entretien est prévu dans 5 000 kilomètres."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_Success_es_ES",
+      "intent": "Navegar a casa",
+      "language": "es-ES",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Ruta a casa calculada. Llegada en 20 minutos."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_Success_es_ES",
+      "intent": "Buscar un parking",
+      "language": "es-ES",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Hay varios parkings cerca. ¿Prefiere uno cubierto?",
+        "Navegando al parking cubierto más cercano."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_Success_es_ES",
+      "intent": "Reproducir rock clásico",
+      "language": "es-ES",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Reproduciendo los mejores éxitos de rock clásico en Spotify."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Single_Fail_WrongAction_es_ES",
+      "intent": "Reproducir jazz",
+      "language": "es-ES",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Abriendo el techo solar."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Weather_Single_Success_es_ES",
+      "intent": "¿Qué tiempo hará mañana?",
+      "language": "es-ES",
+      "domain": "WEATHER",
+      "dut_script": [
+        "Mañana estará soleado con una máxima de 31 grados."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_Success_es_ES",
+      "intent": "Llamar a mamá",
+      "language": "es-ES",
+      "domain": "PHONE",
+      "dut_script": [
+        "Llamando a mamá en altavoz."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_Fail_NoContact_es_ES",
+      "intent": "Llamar a David",
+      "language": "es-ES",
+      "domain": "PHONE",
+      "dut_script": [
+        "No tengo un David en tus contactos. ¿Querías decir David García?",
+        "Llamando a David García."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_Success_es_ES",
+      "intent": "Tengo frío",
+      "language": "es-ES",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Temperatura ajustada. ¿Puedo ayudarle con algo más?"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_Fail_Hallucination_es_ES",
+      "intent": "Encender la calefacción",
+      "language": "es-ES",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "He añadido un calentador a tu carrito de Amazon."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_Success_es_ES",
+      "intent": "Abrir el techo solar",
+      "language": "es-ES",
+      "domain": "VEHICLE_CONTROL",
+      "dut_script": [
+        "El techo solar está ahora abierto."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_Success_es_ES",
+      "intent": "Temperatura del conductor a 22 grados",
+      "language": "es-ES",
+      "domain": "HVAC",
+      "dut_script": [
+        "Temperatura del conductor ajustada a 22 grados."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Status_Single_Success_es_ES",
+      "intent": "¿Cuál es la presión de los neumáticos?",
+      "language": "es-ES",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "Delanteros a 2.4 bar, traseros a 2.2 bar."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SeatComfort_Single_Success_es_ES",
+      "intent": "Activar calefacción del asiento nivel 2",
+      "language": "es-ES",
+      "domain": "SEAT_COMFORT",
+      "dut_script": [
+        "Calefacción del asiento del conductor ajustada al nivel 2."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "AmbientLighting_Single_Success_es_ES",
+      "intent": "Poner luces en azul",
+      "language": "es-ES",
+      "domain": "AMBIENT_LIGHTING",
+      "dut_script": [
+        "Iluminación ambiental cambiada a azul."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DrivingAssist_Single_Success_es_ES",
+      "intent": "Mostrar ajustes de asistencia a la conducción",
+      "language": "es-ES",
+      "domain": "DRIVING_ASSISTANCE",
+      "dut_script": [
+        "Aquí están sus ajustes de asistencia a la conducción. DISTRONIC y asistente de carril activo están activados."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DigitalAssistant_Single_Success_es_ES",
+      "intent": "Cuéntame un chiste",
+      "language": "es-ES",
+      "domain": "DIGITAL_ASSISTANT",
+      "dut_script": [
+        "¿Por qué el Mercedes llevó una escalera al bar? ¡Porque le dijeron que las bebidas eran por cuenta de la casa!"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_Success_es_ES",
+      "intent": "Poner FM 101.1",
+      "language": "es-ES",
+      "domain": "RADIO",
+      "dut_script": [
+        "Sintonizado en FM 101.1."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Maintenance_Single_Success_es_ES",
+      "intent": "¿Cuándo es mi próximo servicio?",
+      "language": "es-ES",
+      "domain": "MAINTENANCE",
+      "dut_script": [
+        "Su próximo servicio es en 5.000 kilómetros."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_Success_it_IT",
+      "intent": "Naviga verso casa",
+      "language": "it-IT",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Percorso verso casa calcolato. Arrivo tra 20 minuti."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_Success_it_IT",
+      "intent": "Trova un parcheggio",
+      "language": "it-IT",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Ci sono diversi parcheggi nelle vicinanze. Preferisci uno coperto?",
+        "Navigazione verso il parcheggio coperto più vicino."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_Success_it_IT",
+      "intent": "Riproduci rock classico",
+      "language": "it-IT",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Riproduzione dei migliori brani di rock classico su Spotify."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Single_Fail_WrongAction_it_IT",
+      "intent": "Riproduci jazz",
+      "language": "it-IT",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Apertura del tettuccio apribile."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Weather_Single_Success_it_IT",
+      "intent": "Che tempo farà domani?",
+      "language": "it-IT",
+      "domain": "WEATHER",
+      "dut_script": [
+        "Domani sarà soleggiato con una massima di 31 gradi."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_Success_it_IT",
+      "intent": "Chiama mamma",
+      "language": "it-IT",
+      "domain": "PHONE",
+      "dut_script": [
+        "Chiamata alla mamma in vivavoce."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_Fail_NoContact_it_IT",
+      "intent": "Chiama David",
+      "language": "it-IT",
+      "domain": "PHONE",
+      "dut_script": [
+        "Non ho un David nei tuoi contatti. Intendevi David Rossi?",
+        "Chiamata a David Rossi."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_Success_it_IT",
+      "intent": "Ho freddo",
+      "language": "it-IT",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Temperatura regolata. Posso aiutarti con qualcos'altro?"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_Fail_Hallucination_it_IT",
+      "intent": "Accendi il riscaldamento",
+      "language": "it-IT",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Ho aggiunto una stufa al tuo carrello Amazon."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_Success_it_IT",
+      "intent": "Apri il tettuccio",
+      "language": "it-IT",
+      "domain": "VEHICLE_CONTROL",
+      "dut_script": [
+        "Il tettuccio apribile è ora aperto."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_Success_it_IT",
+      "intent": "Imposta temperatura guidatore a 22 gradi",
+      "language": "it-IT",
+      "domain": "HVAC",
+      "dut_script": [
+        "Temperatura guidatore impostata a 22 gradi."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Status_Single_Success_it_IT",
+      "intent": "Qual è la pressione delle gomme?",
+      "language": "it-IT",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "Gomme anteriori a 2.4 bar, posteriori a 2.2 bar."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SeatComfort_Single_Success_it_IT",
+      "intent": "Attiva riscaldamento sedile livello 2",
+      "language": "it-IT",
+      "domain": "SEAT_COMFORT",
+      "dut_script": [
+        "Riscaldamento sedile guidatore impostato al livello 2."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "AmbientLighting_Single_Success_it_IT",
+      "intent": "Imposta luci colore blu",
+      "language": "it-IT",
+      "domain": "AMBIENT_LIGHTING",
+      "dut_script": [
+        "Illuminazione ambientale cambiata in blu."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DrivingAssist_Single_Success_it_IT",
+      "intent": "Mostra impostazioni assistenza alla guida",
+      "language": "it-IT",
+      "domain": "DRIVING_ASSISTANCE",
+      "dut_script": [
+        "Ecco le tue impostazioni di assistenza alla guida. DISTRONIC e assistenza attiva di percorrenza sono attivi."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DigitalAssistant_Single_Success_it_IT",
+      "intent": "Racconta una barzelletta",
+      "language": "it-IT",
+      "domain": "DIGITAL_ASSISTANT",
+      "dut_script": [
+        "Perché la Mercedes ha portato una scala al bar? Perché le hanno detto che le bevute erano offerte dalla casa!"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_Success_it_IT",
+      "intent": "Metti FM 101.1",
+      "language": "it-IT",
+      "domain": "RADIO",
+      "dut_script": [
+        "Sintonizzato su FM 101.1."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Maintenance_Single_Success_it_IT",
+      "intent": "Quand'è il prossimo tagliando?",
+      "language": "it-IT",
+      "domain": "MAINTENANCE",
+      "dut_script": [
+        "Il prossimo tagliando è previsto tra 5.000 chilometri."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_Success_ja_JP",
+      "intent": "家へナビして",
+      "language": "ja-JP",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "自宅へのルートを設定しました。到着予定は20分後です。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_Success_ja_JP",
+      "intent": "最寄りの駐車場を探して",
+      "language": "ja-JP",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "近くに3件の駐車場があります。屋根付きを探していますか？",
+        "最寄りの屋根付き駐車場へ案内します。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_Success_ja_JP",
+      "intent": "クラシックロックをかけて",
+      "language": "ja-JP",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Spotifyでクラシックロックのヒット曲を再生します。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Single_Fail_WrongAction_ja_JP",
+      "intent": "ジャズをかけて",
+      "language": "ja-JP",
+      "domain": "MEDIA",
+      "dut_script": [
+        "サンルーフを開きます。"
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Weather_Single_Success_ja_JP",
+      "intent": "明日の天気は？",
+      "language": "ja-JP",
+      "domain": "WEATHER",
+      "dut_script": [
+        "明日は晴れ、最高気温は31度です。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_Success_ja_JP",
+      "intent": "お母さんに電話して",
+      "language": "ja-JP",
+      "domain": "PHONE",
+      "dut_script": [
+        "ハンズフリーでお母さんに発信します。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_Fail_NoContact_ja_JP",
+      "intent": "デビッドに電話して",
+      "language": "ja-JP",
+      "domain": "PHONE",
+      "dut_script": [
+        "デビッドは見つかりません。デビッド田中ですか？",
+        "デビッド田中に発信します。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_Success_ja_JP",
+      "intent": "寒いよ",
+      "language": "ja-JP",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "温度を調整しました。他にお手伝いすることはありますか？"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_Fail_Hallucination_ja_JP",
+      "intent": "ヒーターをつけて",
+      "language": "ja-JP",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Amazonのカートにヒーターを追加しました。"
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_Success_ja_JP",
+      "intent": "サンルーフを開けて",
+      "language": "ja-JP",
+      "domain": "VEHICLE_CONTROL",
+      "dut_script": [
+        "サンルーフを開きました。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_Success_ja_JP",
+      "intent": "運転席の温度を22度に",
+      "language": "ja-JP",
+      "domain": "HVAC",
+      "dut_script": [
+        "運転席の温度を22度に設定しました。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Status_Single_Success_ja_JP",
+      "intent": "タイヤの空気圧は？",
+      "language": "ja-JP",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "前輪240kPa、後輪220kPaです。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SeatComfort_Single_Success_ja_JP",
+      "intent": "シートヒーターを2段階にして",
+      "language": "ja-JP",
+      "domain": "SEAT_COMFORT",
+      "dut_script": [
+        "運転席のシートヒーターを2段階に設定しました。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "AmbientLighting_Single_Success_ja_JP",
+      "intent": "アンビエントライトを青にして",
+      "language": "ja-JP",
+      "domain": "AMBIENT_LIGHTING",
+      "dut_script": [
+        "アンビエントライトを青に変更しました。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DrivingAssist_Single_Success_ja_JP",
+      "intent": "ドライバーアシストの設定を見せて",
+      "language": "ja-JP",
+      "domain": "DRIVING_ASSISTANCE",
+      "dut_script": [
+        "ドライバーアシストの設定です。DISTRONICとアクティブレーンキープが有効です。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DigitalAssistant_Single_Success_ja_JP",
+      "intent": "冗談を言って",
+      "language": "ja-JP",
+      "domain": "DIGITAL_ASSISTANT",
+      "dut_script": [
+        "なぜメルセデスは-Barに階段を持って行ったの？ 飲み物がおごりだと聞いたから！"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_Success_ja_JP",
+      "intent": "FM101.1をかけて",
+      "language": "ja-JP",
+      "domain": "RADIO",
+      "dut_script": [
+        "FM101.1にチューニングしました。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Maintenance_Single_Success_ja_JP",
+      "intent": "次の点検はいつ？",
+      "language": "ja-JP",
+      "domain": "MAINTENANCE",
+      "dut_script": [
+        "次の点検は5000キロ走行後です。"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_Success_ko_KR",
+      "intent": "집으로 안내해줘",
+      "language": "ko-KR",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "집까지 경로를 설정했습니다. 20분 후 도착 예정입니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_Success_ko_KR",
+      "intent": "근처 주차장 찾아줘",
+      "language": "ko-KR",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "근처 주차장 3곳이 있습니다. 지붕이 있는 주차장을 찾으시나요?",
+        "가장 가까운 지붕 있는 주차장으로 안내합니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_Success_ko_KR",
+      "intent": "클래식 록 틀어줘",
+      "language": "ko-KR",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Spotify에서 클래식 록 히트곡을 재생합니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Single_Fail_WrongAction_ko_KR",
+      "intent": "재즈 틀어줘",
+      "language": "ko-KR",
+      "domain": "MEDIA",
+      "dut_script": [
+        "선루프를 엽니다."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Weather_Single_Success_ko_KR",
+      "intent": "내일 날씨 어때?",
+      "language": "ko-KR",
+      "domain": "WEATHER",
+      "dut_script": [
+        "내일은 맑고 최고 기온은 31도입니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_Success_ko_KR",
+      "intent": "엄마한테 전화해",
+      "language": "ko-KR",
+      "domain": "PHONE",
+      "dut_script": [
+        "스피커폰으로 엄마에게 전화를 겁니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_Fail_NoContact_ko_KR",
+      "intent": "데이빗한테 전화해",
+      "language": "ko-KR",
+      "domain": "PHONE",
+      "dut_script": [
+        "데이빗이라는 연락처가 없습니다. 데이빗 김을 찾으시나요?",
+        "데이빗 김에게 전화를 겁니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_Success_ko_KR",
+      "intent": "추워",
+      "language": "ko-KR",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "온도를 조절했습니다. 다른 도움이 필요하신가요?"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_Fail_Hallucination_ko_KR",
+      "intent": "히터 켜줘",
+      "language": "ko-KR",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "아마존 장바구니에 히터를 추가했습니다."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_Success_ko_KR",
+      "intent": "선루프 열어줘",
+      "language": "ko-KR",
+      "domain": "VEHICLE_CONTROL",
+      "dut_script": [
+        "선루프가 열렸습니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_Success_ko_KR",
+      "intent": "운전석 온도 22도로 맞춰",
+      "language": "ko-KR",
+      "domain": "HVAC",
+      "dut_script": [
+        "운전석 온도를 22도로 설정했습니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Status_Single_Success_ko_KR",
+      "intent": "타이어 공기압이 어때?",
+      "language": "ko-KR",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "전륜 2.4바, 후륜 2.2바입니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SeatComfort_Single_Success_ko_KR",
+      "intent": "시트 히터 2단으로 켜줘",
+      "language": "ko-KR",
+      "domain": "SEAT_COMFORT",
+      "dut_script": [
+        "운전석 시트 히터를 2단으로 설정했습니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "AmbientLighting_Single_Success_ko_KR",
+      "intent": "앰비언트 라이트 파란색으로 해줘",
+      "language": "ko-KR",
+      "domain": "AMBIENT_LIGHTING",
+      "dut_script": [
+        "앰비언트 라이트를 파란색으로 변경했습니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DrivingAssist_Single_Success_ko_KR",
+      "intent": "주행 보조 설정 보여줘",
+      "language": "ko-KR",
+      "domain": "DRIVING_ASSISTANCE",
+      "dut_script": [
+        "주행 보조 설정입니다. 디스트로닉과 액티브 차선 유지 보조가 활성화되어 있습니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DigitalAssistant_Single_Success_ko_KR",
+      "intent": "농담 하나 해줘",
+      "language": "ko-KR",
+      "domain": "DIGITAL_ASSISTANT",
+      "dut_script": [
+        "왜 벤츠가 술집에 사다리를 가져갔을까요? 음료가 집에서 제공된다고 들었기 때문이죠!"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_Success_ko_KR",
+      "intent": "FM 101.1 틀어줘",
+      "language": "ko-KR",
+      "domain": "RADIO",
+      "dut_script": [
+        "FM 101.1로 설정되었습니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Maintenance_Single_Success_ko_KR",
+      "intent": "다음 정비 일정은?",
+      "language": "ko-KR",
+      "domain": "MAINTENANCE",
+      "dut_script": [
+        "다음 정비는 5,000킬로미터 주행 후입니다."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_Success_ru_RU",
+      "intent": "Поехали домой",
+      "language": "ru-RU",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Маршрут до дома построен. Прибытие через 20 минут."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_Success_ru_RU",
+      "intent": "Найди парковку",
+      "language": "ru-RU",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Рядом несколько парковок. Вам нужна крытая парковка?",
+        "Едем на ближайшую крытую парковку."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_Success_ru_RU",
+      "intent": "Включи классический рок",
+      "language": "ru-RU",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Включаю хиты классического рока на Spotify."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Single_Fail_WrongAction_ru_RU",
+      "intent": "Включи джаз",
+      "language": "ru-RU",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Открываю люк."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Weather_Single_Success_ru_RU",
+      "intent": "Какая погода будет завтра?",
+      "language": "ru-RU",
+      "domain": "WEATHER",
+      "dut_script": [
+        "Завтра будет солнечно, максимум 31 градус."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_Success_ru_RU",
+      "intent": "Позвони маме",
+      "language": "ru-RU",
+      "domain": "PHONE",
+      "dut_script": [
+        "Звоню маме по громкой связи."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_Fail_NoContact_ru_RU",
+      "intent": "Позвони Давиду",
+      "language": "ru-RU",
+      "domain": "PHONE",
+      "dut_script": [
+        "У меня нет Давида в контактах. Вы имели в виду Давида Иванова?",
+        "Звоню Давиду Иванову."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_Success_ru_RU",
+      "intent": "Мне холодно",
+      "language": "ru-RU",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Температура скорректирована. Могу помочь с чем-то ещё?"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_Fail_Hallucination_ru_RU",
+      "intent": "Включи обогреватель",
+      "language": "ru-RU",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Я добавил обогреватель в вашу корзину на Ozon."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_Success_ru_RU",
+      "intent": "Открой люк",
+      "language": "ru-RU",
+      "domain": "VEHICLE_CONTROL",
+      "dut_script": [
+        "Люк теперь открыт."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_Success_ru_RU",
+      "intent": "Температуру водителя на 22",
+      "language": "ru-RU",
+      "domain": "HVAC",
+      "dut_script": [
+        "Температура водителя установлена на 22 градуса."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Status_Single_Success_ru_RU",
+      "intent": "Какое давление в шинах?",
+      "language": "ru-RU",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "Передние 2.4 бара, задние 2.2 бара."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SeatComfort_Single_Success_ru_RU",
+      "intent": "Включи подогрев сиденья уровень 2",
+      "language": "ru-RU",
+      "domain": "SEAT_COMFORT",
+      "dut_script": [
+        "Подогрев сиденья водителя установлен на уровень 2."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "AmbientLighting_Single_Success_ru_RU",
+      "intent": "Установи подсветку синего цвета",
+      "language": "ru-RU",
+      "domain": "AMBIENT_LIGHTING",
+      "dut_script": [
+        "Интерьерная подсветка изменена на синий цвет."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DrivingAssist_Single_Success_ru_RU",
+      "intent": "Покажи настройки ассистента водителя",
+      "language": "ru-RU",
+      "domain": "DRIVING_ASSISTANCE",
+      "dut_script": [
+        "Вот ваши настройки помощи водителю. DISTRONIC и активный ассистент удержания полосы включены."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DigitalAssistant_Single_Success_ru_RU",
+      "intent": "Расскажи анекдот",
+      "language": "ru-RU",
+      "domain": "DIGITAL_ASSISTANT",
+      "dut_script": [
+        "Почему Мерседес взял лестницу в бар? Потому что ему сказали, что напитки бесплатные!"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_Success_ru_RU",
+      "intent": "Включи FM 101.1",
+      "language": "ru-RU",
+      "domain": "RADIO",
+      "dut_script": [
+        "Настроено на FM 101.1."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Maintenance_Single_Success_ru_RU",
+      "intent": "Когда следующее ТО?",
+      "language": "ru-RU",
+      "domain": "MAINTENANCE",
+      "dut_script": [
+        "Следующее техническое обслуживание через 5000 километров."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_Success_ar_SA",
+      "intent": "التوجه إلى المنزل",
+      "language": "ar-SA",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "تم حساب المسار إلى المنزل. الوصول خلال 20 دقيقة."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_Success_ar_SA",
+      "intent": "ابحث عن موقف سيارات",
+      "language": "ar-SA",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "هناك عدة مواقف سيارات قريبة. هل تريد موقف مغطى؟",
+        "جاري التوجيه إلى أقرب موقف مغطى."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_Success_ar_SA",
+      "intent": "تشغيل أغاني أم كلثوم",
+      "language": "ar-SA",
+      "domain": "MEDIA",
+      "dut_script": [
+        "جاري تشغيل أشهر أغاني أم كلثوم."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Single_Fail_WrongAction_ar_SA",
+      "intent": "تشغيل جاز",
+      "language": "ar-SA",
+      "domain": "MEDIA",
+      "dut_script": [
+        "جاري فتح السقف الزجاجي."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Weather_Single_Success_ar_SA",
+      "intent": "ما حالة الطقس غداً؟",
+      "language": "ar-SA",
+      "domain": "WEATHER",
+      "dut_script": [
+        "الطقس غداً سيكون مشمساً، ودرجة الحرارة العظمى 31 درجة مئوية."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_Success_ar_SA",
+      "intent": "الاتصال بأمي",
+      "language": "ar-SA",
+      "domain": "PHONE",
+      "dut_script": [
+        "جاري إجراء اتصال بأمي عبر مكبر الصوت."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_Fail_NoContact_ar_SA",
+      "intent": "الاتصال بداود",
+      "language": "ar-SA",
+      "domain": "PHONE",
+      "dut_script": [
+        "لم يتم العثور على جهة اتصال باسم داود. هل تقصد داود أحمد؟",
+        "جاري الاتصال بداود أحمد."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_Success_ar_SA",
+      "intent": "أشعر بالبرد",
+      "language": "ar-SA",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "تم تعديل الحرارة. هل هناك شيء آخر يمكنني مساعدتك به؟"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_Fail_Hallucination_ar_SA",
+      "intent": "تشغيل المدفأة",
+      "language": "ar-SA",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "تمت إضافة مدفأة إلى قائمة التسوق على أمازون."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_Success_ar_SA",
+      "intent": "افتح السقف",
+      "language": "ar-SA",
+      "domain": "VEHICLE_CONTROL",
+      "dut_script": [
+        "تم فتح السقف الزجاجي."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_Success_ar_SA",
+      "intent": "ضبط درجة حرارة السائق على 22",
+      "language": "ar-SA",
+      "domain": "HVAC",
+      "dut_script": [
+        "تم ضبط درجة حرارة السائق على 22 درجة."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Status_Single_Success_ar_SA",
+      "intent": "ما هو ضغط الإطارات؟",
+      "language": "ar-SA",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "الإطارات الأمامية 2.4 بار، والخلفية 2.2 بار."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SeatComfort_Single_Success_ar_SA",
+      "intent": "تشغيل تدفئة المقعد المستوى الثاني",
+      "language": "ar-SA",
+      "domain": "SEAT_COMFORT",
+      "dut_script": [
+        "تم ضبط تدفة مقعد السائق على المستوى الثاني."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "AmbientLighting_Single_Success_ar_SA",
+      "intent": "ضبط الإضاءة باللون الأزرق",
+      "language": "ar-SA",
+      "domain": "AMBIENT_LIGHTING",
+      "dut_script": [
+        "تم تغيير الإضاءة المحيطية إلى الأزرق."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DrivingAssist_Single_Success_ar_SA",
+      "intent": "عرض إعدادات مساعد القيادة",
+      "language": "ar-SA",
+      "domain": "DRIVING_ASSISTANCE",
+      "dut_script": [
+        "إليك إعدادات مساعد القيادة. DISTRONIC والمساعدة النشطة لبقاء المسار مفعّلان."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DigitalAssistant_Single_Success_ar_SA",
+      "intent": "أخبرني بنكتة",
+      "language": "ar-SA",
+      "domain": "DIGITAL_ASSISTANT",
+      "dut_script": [
+        "لماذا أخذ مرسيدس سلمًا إلى النادٍ؟ لأنه سمع أن المشروبات مجانية!"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_Success_ar_SA",
+      "intent": "تشغيل FM 101.1",
+      "language": "ar-SA",
+      "domain": "RADIO",
+      "dut_script": [
+        "تم ضبط الراديو على المحطة FM 101.1."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Maintenance_Single_Success_ar_SA",
+      "intent": "متى موعد الصيانة القادم؟",
+      "language": "ar-SA",
+      "domain": "MAINTENANCE",
+      "dut_script": [
+        "موعد الصيانة القادم هو بعد 5000 كيلومتر."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_Success_pt_BR",
+      "intent": "Navegar para casa",
+      "language": "pt-BR",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Rota para casa calculada. Chegada em 20 minutos."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_Success_pt_BR",
+      "intent": "Encontrar um estacionamento",
+      "language": "pt-BR",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Encontrei vários estacionamentos por aqui. Prefere um coberto?",
+        "Navegando para o estacionamento coberto mais próximo."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_Success_pt_BR",
+      "intent": "Tocar MPB",
+      "language": "pt-BR",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Tocando os maiores sucessos da MPB no Spotify."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Single_Fail_WrongAction_pt_BR",
+      "intent": "Tocar jazz",
+      "language": "pt-BR",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Abrindo o teto solar."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Weather_Single_Success_pt_BR",
+      "intent": "Como estará o tempo amanhã?",
+      "language": "pt-BR",
+      "domain": "WEATHER",
+      "dut_script": [
+        "Amanhã será ensolarado com máxima de 31 graus."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_Success_pt_BR",
+      "intent": "Ligar para mamãe",
+      "language": "pt-BR",
+      "domain": "PHONE",
+      "dut_script": [
+        "Ligando para mamãe no viva-voz."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_Fail_NoContact_pt_BR",
+      "intent": "Ligar para David",
+      "language": "pt-BR",
+      "domain": "PHONE",
+      "dut_script": [
+        "Não tenho um David nos seus contatos. Você quis dizer David Silva?",
+        "Ligando para David Silva."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_Success_pt_BR",
+      "intent": "Estou com frio",
+      "language": "pt-BR",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Temperatura ajustada. Posso ajudar com mais alguma coisa?"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_Fail_Hallucination_pt_BR",
+      "intent": "Ligar o aquecedor",
+      "language": "pt-BR",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Adicionei um aquecedor ao seu carrinho da Amazon."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_Success_pt_BR",
+      "intent": "Abrir o teto solar",
+      "language": "pt-BR",
+      "domain": "VEHICLE_CONTROL",
+      "dut_script": [
+        "O teto solar está aberto."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_Success_pt_BR",
+      "intent": "Temperatura do motorista para 22 graus",
+      "language": "pt-BR",
+      "domain": "HVAC",
+      "dut_script": [
+        "Temperatura do motorista ajustada para 22 graus."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Status_Single_Success_pt_BR",
+      "intent": "Qual a pressão dos pneus?",
+      "language": "pt-BR",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "Pneus dianteiros a 2.4 bar, traseiros a 2.2 bar."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SeatComfort_Single_Success_pt_BR",
+      "intent": "Ativar aquecimento do assento nível 2",
+      "language": "pt-BR",
+      "domain": "SEAT_COMFORT",
+      "dut_script": [
+        "Aquecimento do assento do motorista definido para o nível 2."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "AmbientLighting_Single_Success_pt_BR",
+      "intent": "Definir luzes em azul",
+      "language": "pt-BR",
+      "domain": "AMBIENT_LIGHTING",
+      "dut_script": [
+        "Iluminação ambiente alterada para azul."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DrivingAssist_Single_Success_pt_BR",
+      "intent": "Mostrar configurações de assistência à direção",
+      "language": "pt-BR",
+      "domain": "DRIVING_ASSISTANCE",
+      "dut_script": [
+        "Aqui estão suas configurações de assistência à direção. DISTRONIC e assistente de faixa ativos estão ativados."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DigitalAssistant_Single_Success_pt_BR",
+      "intent": "Conte uma piada",
+      "language": "pt-BR",
+      "domain": "DIGITAL_ASSISTANT",
+      "dut_script": [
+        "Por que o Mercedes levou uma escada ao bar? Porque ouviu dizer que as bebidas eram por conta da casa!"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_Success_pt_BR",
+      "intent": "Sintonizar FM 101.1",
+      "language": "pt-BR",
+      "domain": "RADIO",
+      "dut_script": [
+        "Sintonizado em FM 101.1."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Maintenance_Single_Success_pt_BR",
+      "intent": "Quando é a próxima revisão?",
+      "language": "pt-BR",
+      "domain": "MAINTENANCE",
+      "dut_script": [
+        "Sua próxima revisão é em 5.000 quilômetros."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Single_Success_tr_TR",
+      "intent": "Eve navigasyon yap",
+      "language": "tr-TR",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Eve rota hesaplandı. 20 dakika içinde varış."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Nav_Multi_Success_tr_TR",
+      "intent": "Otopark bul",
+      "language": "tr-TR",
+      "domain": "NAVIGATION",
+      "dut_script": [
+        "Yakında birkaç otopark var. Kapalı bir otopark mı istiyorsunuz?",
+        "En yakındaki kapalı otoparka yönlendiriliyor."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Media_Single_Success_tr_TR",
+      "intent": "Pop müzik çal",
+      "language": "tr-TR",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Spotify'da en iyi pop hitleri çalınıyor."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Media_Single_Fail_WrongAction_tr_TR",
+      "intent": "Caz çal",
+      "language": "tr-TR",
+      "domain": "MEDIA",
+      "dut_script": [
+        "Sunroof açılıyor."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Weather_Single_Success_tr_TR",
+      "intent": "Yarın hava nasıl olacak?",
+      "language": "tr-TR",
+      "domain": "WEATHER",
+      "dut_script": [
+        "Yarın güneşli, en yüksek 31 derece."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Single_Success_tr_TR",
+      "intent": "Annemi ara",
+      "language": "tr-TR",
+      "domain": "PHONE",
+      "dut_script": [
+        "Hoparlörde anne aranıyor."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Phone_Multi_Fail_NoContact_tr_TR",
+      "intent": "David'i ara",
+      "language": "tr-TR",
+      "domain": "PHONE",
+      "dut_script": [
+        "Kişilerinizde David diye biri yok. David Yılmaz mı demek istediniz?",
+        "David Yılmaz aranıyor."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 2
+    },
+    {
+      "name": "Climate_Single_Success_tr_TR",
+      "intent": "Üşüdüm",
+      "language": "tr-TR",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Sıcaklık ayarlandı. Başka bir konuda yardımcı olabilir miyim?"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Climate_Single_Fail_Hallucination_tr_TR",
+      "intent": "Isıtıcıyı aç",
+      "language": "tr-TR",
+      "domain": "CLIMATE",
+      "dut_script": [
+        "Amazon sepetinize bir ısıtıcı eklendi."
+      ],
+      "expected_verdict": "FAIL",
+      "expected_turns": 1
+    },
+    {
+      "name": "Vehicle_Single_Success_tr_TR",
+      "intent": "Sunroof'u aç",
+      "language": "tr-TR",
+      "domain": "VEHICLE_CONTROL",
+      "dut_script": [
+        "Sunroof şimdi açık."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "HVAC_Single_Success_tr_TR",
+      "intent": "Sürücü sıcaklığını 22 ayarla",
+      "language": "tr-TR",
+      "domain": "HVAC",
+      "dut_script": [
+        "Sürücü sıcaklığı 22 dereceye ayarlandı."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Status_Single_Success_tr_TR",
+      "intent": "Lastik basıncı ne kadar?",
+      "language": "tr-TR",
+      "domain": "VEHICLE_STATUS",
+      "dut_script": [
+        "Ön lastikler 2.4 bar, arka lastikler 2.2 bar."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "SeatComfort_Single_Success_tr_TR",
+      "intent": "Koltuk ısıtma seviye 2 aç",
+      "language": "tr-TR",
+      "domain": "SEAT_COMFORT",
+      "dut_script": [
+        "Sürücü koltuğu ısıtması seviye 2'ye ayarlandı."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "AmbientLighting_Single_Success_tr_TR",
+      "intent": "Ortam aydınlatmasını mavi yap",
+      "language": "tr-TR",
+      "domain": "AMBIENT_LIGHTING",
+      "dut_script": [
+        "Ortam aydınlatması mavi olarak değiştirildi."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DrivingAssist_Single_Success_tr_TR",
+      "intent": "Sürüş asistanı ayarlarını göster",
+      "language": "tr-TR",
+      "domain": "DRIVING_ASSISTANCE",
+      "dut_script": [
+        "Sürüş asistanı ayarlarınız burada. DISTRONIC ve aktif şerit koruma asistanı aktif."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "DigitalAssistant_Single_Success_tr_TR",
+      "intent": "Fıkra anlat",
+      "language": "tr-TR",
+      "domain": "DIGITAL_ASSISTANT",
+      "dut_script": [
+        "Neden Mercedes bara merdivenle gitti? Çünkü içeceklerin ikram olduğunu duymuş!"
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Radio_Single_Success_tr_TR",
+      "intent": "FM 101.1 aç",
+      "language": "tr-TR",
+      "domain": "RADIO",
+      "dut_script": [
+        "FM 101.1 ayarlandı."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    },
+    {
+      "name": "Maintenance_Single_Success_tr_TR",
+      "intent": "Bir sonraki bakım ne zaman?",
+      "language": "tr-TR",
+      "domain": "MAINTENANCE",
+      "dut_script": [
+        "Bir sonraki bakımınız 5.000 kilometre sonra."
+      ],
+      "expected_verdict": "PASS",
+      "expected_turns": 1
+    }
+  ]
+}
