@@ -38,12 +38,6 @@ fi
 # Enable hf_transfer for faster downloads if available
 export HF_HUB_ENABLE_HF_TRANSFER=1
 
-# ── Ensure user is logged in (needed for some gated models) ─────
-if ! huggingface-cli whoami &>/dev/null 2>&1; then
-  echo "Not logged in to HuggingFace. Running login..."
-  huggingface-cli login
-fi
-
 # ── Download loop ────────────────────────────────────────────────
 FAILED=()
 SUCCEEDED=()
@@ -75,7 +69,7 @@ while IFS= read -r line; do
     continue
   fi
 
-  if huggingface-cli download "$repo" "$filename" --local-dir "$dest_dir"; then
+  if hf download "$repo" "$filename" --local-dir "$dest_dir"; then
     echo "  Downloaded successfully."
     SUCCEEDED+=("$filename")
   else
