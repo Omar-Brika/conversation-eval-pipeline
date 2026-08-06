@@ -36,17 +36,9 @@ def extract_json_from_text(text: str) -> dict | None:
 def parse_prompter_response(text: str, default_intent: str) -> PrompterSchema:
     json_data = extract_json_from_text(text)
     if json_data and "text_command" in json_data:
-        return PrompterSchema(
-            text_command=json_data["text_command"],
-            is_interaction_complete=bool(
-                json_data.get("is_interaction_complete", False)
-            ),
-        )
-
+        return PrompterSchema(text_command=json_data["text_command"])
     clean_text = text.strip().replace('"', "").split("\n")[0]
-    return PrompterSchema(
-        text_command=clean_text or default_intent, is_interaction_complete=False
-    )
+    return PrompterSchema(text_command=clean_text or default_intent)
 
 
 def parse_judge_response(text: str) -> JudgeSchema:
