@@ -310,20 +310,6 @@ Reports are saved as `benchmark_report_YYYYMMDD_HHMMSS.json`.
 
 ---
 
-## Security Assessment
-
-As a secondary deliverable, an authorized vulnerability assessment of the target Jetson-class board was performed, following a standard reconnaissance-enumeration-exploitation methodology.
-
-**Findings on OpenSSH 9.6:**
-
-| Finding | CVSS | Description |
-|---------|------|-------------|
-| CVE-2024-6387 (regreSSHion) | Critical (8.1) | Unauthenticated remote code execution via signal-handler race condition. Confirmed with working PoC. |
-| CVE-2025-26466 | High (5.9) | Uncontrolled memory consumption (DoS) during key exchange. Confirmed via version fingerprinting. |
-
-**Remediation:** Upgrade OpenSSH past patched versions and restrict SSH access to a trusted management network. The three additional unauthenticated ports discovered (7777, 50052, 50314/Nagios NSCA) should be restricted to a management VLAN.
-
----
 
 ## Future Work
 
